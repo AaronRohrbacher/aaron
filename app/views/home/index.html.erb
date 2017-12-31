@@ -1,1 +1,6 @@
+<% @posts.each do |post| %>
+  
+  <h2><%= link_to post.title, post_path(post) %></h2>
+  <p><%= truncate(post.content, length: 100) %> <%= link_to 'Continue Reading', post_path(post)%></p>
 
+<% end %>

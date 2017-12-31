@@ -11,12 +11,15 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <script>
-    $( window ).resize(function() {
-      let height = document.getElementById("header").offsetHeight;
-      document.getElementById("content").style.marginTop = (height + 10) + 'px';
-    });
+      $(document).on('turbolinks:load', function () {
+        var height = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.marginTop = (height + 10) + 'px';
+      });
+      $(window).resize(function() {
+        var height = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.marginTop = (height + 10) + 'px';
+      });
     </script>
-
 
   </head>
 
@@ -29,7 +32,6 @@
       </div>
     </div>
     <div id = 'content' >
-
     <%= yield %>
     </div>
   </body>

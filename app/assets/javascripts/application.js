@@ -16,3 +16,12 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+
+$(document).ready(function () {
+  var height = document.getElementById("header").offsetHeight;
+  document.getElementById("content").style.marginTop = (height + 10) + 'px';
+});
+$(window).resize(function() {
+  var height = document.getElementById("header").offsetHeight;
+  document.getElementById("content").style.marginTop = (height + 10) + 'px';
+});

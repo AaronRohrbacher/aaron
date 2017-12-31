@@ -1,0 +1,5 @@
+<h1><%= @post.title %></h1>
+<p>By Aaron Rohrbacher</p>
+<p><%= @post.created_at.in_time_zone("Pacific Time (US & Canada)").strftime('%m/%d/%Y')%></p>
+<hr>
+<p> <%= simple_format(@post.content) %> </p>
