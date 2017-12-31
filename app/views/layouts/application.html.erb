@@ -9,17 +9,29 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script>
+    $( window ).resize(function() {
+      let height = document.getElementById("header").offsetHeight;
+      document.getElementById("content").style.marginTop = (height + 10) + 'px';
+    });
+    </script>
+
+
   </head>
 
   <body>
-    <div class = 'header'>
+    <div id = 'header'>
       <div class = 'headerContent'>
         <h1><strong>Aaron Rohrbacher</strong></h1>
         <h3>Web Developer</h3>
         <p>Portland, Oregon | (541) 848-2303 | aaron@aaronrohrbacher.com</p>
       </div>
-      <%= render 'layouts/navbar' %>
     </div>
+    <div id = 'content' >
+
     <%= yield %>
+    </div>
   </body>
+
 </html>

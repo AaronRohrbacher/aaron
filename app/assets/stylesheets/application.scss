@@ -1,12 +1,13 @@
 @import "bootstrap";
 
-.header {
+#header {
   background-color: #1c3b4f;
   color: white;
   font-family: 'Montserrat', sans-serif;
   text-align: center;
   width: 100%;
   position: fixed;
+  top: 0;
 }
 
 .headerContent {
@@ -20,6 +21,6 @@
   margin-bottom: 5px;
 }
 
-.custom-navigation {
-  background-color: white;
+#content {
+  margin-top: 300px;
 }
