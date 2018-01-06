@@ -1,28 +1,3 @@
-@import "bootstrap";
-
-#header {
-  background-color: #1c3b4f;
-  color: white;
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  width: 100%;
-  position: fixed;
-  top: 0;
-}
-
-.headerContent {
-  border-style:solid;
-  border-color: black;
-  border-width: 10px;
-  margin: 30px;
-}
-
-.headerContent p {
-  margin-bottom: 5px;
-}
-
-
-
 .CodeRay {
 font-family: 'Courier New', 'Terminal', monospace;
 color: #E6E0DB;

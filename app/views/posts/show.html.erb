@@ -2,4 +2,5 @@
 <p>By Aaron Rohrbacher</p>
 <p><%= @post.created_at.in_time_zone("Pacific Time (US & Canada)").strftime('%m/%d/%Y')%></p>
 <hr>
-<p> <%= simple_format(@post.content) %> </p>
+
+<%= coderay(@post.content).html_safe %>
