@@ -38,6 +38,10 @@ gem 'coderay', '~> 1.1.2'
 
 # Authentication:
 gem 'devise', '~> 4.4'
+
+# Post Voting
+# gem 'acts_as_votable', '~> 0.11.1'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -4,3 +4,14 @@
 <hr>
 
 <%= coderay(@post.content).html_safe %>
+
+<%= form_for [@post, @comment] do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_area :content %>
+  <%= f.submit 'Add Comment' %>
+<% end %>
+
+<% @comments.each do |comment| %>
+  <p><%= comment.name %> said:</p>
+  <p><%= comment.content %></p>
+<% end %>
