@@ -35,6 +35,9 @@ gem 'jquery-rails'
 gem 'bootstrap', '~> 4.0.0.beta3'
 gem 'redcarpet', '~> 3.3'
 gem 'coderay', '~> 1.1.2'
+
+# Authentication:
+gem 'devise', '~> 4.4'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
