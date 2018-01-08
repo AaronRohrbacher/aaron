@@ -5,13 +5,23 @@
 
 <%= coderay(@post.content).html_safe %>
 
-<%= form_for [@post, @comment] do |f| %>
-  <%= f.text_field :name %>
-  <%= f.text_area :content %>
-  <%= f.submit 'Add Comment' %>
+<p><strong>Comments:</strong></p>
+<% @comments.each do |comment| %>
+  <p><em><strong><%= comment.name %></em></strong> said:</p>
+  <p><%= comment.content %></p>
 <% end %>
 
-<% @comments.each do |comment| %>
-  <p><%= comment.name %> said:</p>
-  <p><%= comment.content %></p>
+<p><strong>Add a comment:</p>
+<%= form_for [@post, @comment] do |f| %>
+  <div class = "form-group">
+    <%= f.label 'Your name (optional):' %>
+    <%= f.text_field :name, class: "form-control" %>
+    <%= f.label 'Your comment:' %>
+    <p><em>HTML is allowed.</em> To embed code, use the following example PRECISELY: </p>
+    <%= coderay('<code lang="html"><code lang="YOUR LANGUAGE (html, ruby, javascript are for sure supported)">
+  <here is some code>
+    </code></code>').html_safe %>
+    <%= f.text_area :content, class: "form-control" %>
+    <%= f.submit 'Add Comment', class: "btn btn-success" %>
+  </div>
 <% end %>

@@ -39,6 +39,9 @@ gem 'coderay', '~> 1.1.2'
 # Authentication:
 gem 'devise', '~> 4.4'
 
+# API Calls:
+gem 'rest-client', '~> 1.8'
+
 # Post Voting
 # gem 'acts_as_votable', '~> 0.11.1'
 
