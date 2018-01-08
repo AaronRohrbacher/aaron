@@ -14,7 +14,9 @@ class PostsController < ApplicationController
 
     @comment = @post.comments.new
 
-    @post.views.create!(city: ip_detector(request.remote_ip), ip_address: request.remote_ip)
+    if !current_user
+      @post.views.create!(city: ip_detector(request.remote_ip), ip_address: request.remote_ip)
+    end
 
   end
 
