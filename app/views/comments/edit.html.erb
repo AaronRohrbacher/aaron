@@ -1,19 +1,12 @@
-<h1><%= @post.title %></h1>
-<p><%= @post.created_at.in_time_zone("Pacific Time (US & Canada)").strftime('%m/%d/%Y')%></p>
-<p>By Aaron Rohrbacher</p>
+<h3>Here's your comment!</h3>
+<p>If it's not displaying as intended, you can edit it below.</p>
+
+<p><%= @comment.name %> said: </p>
+<%= coderay(@comment.content).html_safe %>
+
 <hr>
 
-<%= coderay(@post.content).html_safe %>
-<hr>
-<p><strong>Comments:</strong></p>
-<% @comments.each do |comment| %>
-  <p><em><strong><%= comment.name %></em></strong> said:</p>
-  <p><%= coderay(comment.content).html_safe %></p>
-  <hr>
-<% end %>
-<hr>
-
-<p><strong>Add a comment:</strong></p>
+<h3>Edit your comment:</h3>
 <div class = 'alert alert-info'>
 <p><em>HTML is allowed.</em> To embed code (including HTML), use the following example PRECISELY (spacing and double quotes matter in the opening code tag).</p>
 <p>YOUR LANGUAGE, as used below can have values of: ruby, javascript, or html</p>
@@ -21,6 +14,8 @@
    &lt;code lang="YOUR LANGUAGE"&gt;YOUR CODE HERE. Line breaks will be added automatically, use two spaces for tabbing.&lt;/code&gt;
 </code>
 </div>
+
+
 <%= form_for [@post, @comment] do |f| %>
   <div class = "form-group">
     <%= f.label 'Your name (optional):' %>
@@ -28,6 +23,7 @@
     <%= f.label 'Your comment:' %>
 
     <%= f.text_area :content, class: "form-control" %>
-    <%= f.submit 'Preview and edit', class: "btn btn-success" %>
+    <%= f.submit 'Finish Editing', class: "btn btn-success" %>
+
+  <% end %>
   </div>
-<% end %>

@@ -31,11 +31,13 @@
         <p>Portland, Oregon | (541) 848-2303 | aaron@aaronrohrbacher.com</p>
       </div>
     </div>
-    <div id = 'content' >
-      <% if current_user %>
-        <p><%= link_to 'New Post', new_post_path %> | <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></p>
-      <% end %>
-      <%= yield %>
+    <div class = "container">
+      <div id = 'content' >
+        <% if current_user %>
+          <p><%= link_to 'New Post', new_post_path %> | <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></p>
+        <% end %>
+        <%= yield %>
+      </div>
     </div>
   </body>
 
