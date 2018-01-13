@@ -12,18 +12,19 @@ class CommentsController < ApplicationController
   def update
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
-    binding.pry
     if @comment.ip_address == request.remote_ip
-      @comment.update!(post_params)
+      @comment.update(post_params)
+      flash[:alert]="Comment updated"
       redirect_to edit_post_comment_path(@post, @comment)
     else
+      flash[:alert]="IP address does not match originator"
       redirect_to root_path
     end
   end
 
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.create!(post_params)
+    @comment = @post.comments.create(post_params)
     redirect_to edit_post_comment_path(@post, @comment)
   end
 
