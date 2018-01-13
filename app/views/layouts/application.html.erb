@@ -30,7 +30,23 @@
         <h3>Web Developer</h3>
         <p>Portland, Oregon | (541) 848-2303 | aaron@aaronrohrbacher.com</p>
       </div>
+      <nav class="navbar navbar-expand-md navbar-light bg-faded navigation">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <%= link_to 'Home', root_path, class: 'nav-link' %>
+            </li>
+
+
+          </ul>
+        </div>
+      </nav>
     </div>
+
+
     <div class = "container">
       <div id = 'content' >
         <% flash.each do |key, value| %>

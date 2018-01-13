@@ -5,5 +5,4 @@ class ApplicationController < ActionController::Base
     result = RestClient.get("http://api.hostip.info/get_json.php?ip=#{ip_address}")
     JSON.parse(result)['city']
   end
-
 end

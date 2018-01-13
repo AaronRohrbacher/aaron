@@ -14,10 +14,10 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     if @comment.ip_address == request.remote_ip
       @comment.update(post_params)
-      flash[:alert]="Comment updated"
+      flash[:alert]="Comment posted - edit again if needed!"
       redirect_to edit_post_comment_path(@post, @comment)
     else
-      flash[:alert]="IP address does not match originator"
+      flash[:alert]="IP address does not match original comment's IP address. E-mail me if you need your comment updated!"
       redirect_to root_path
     end
   end

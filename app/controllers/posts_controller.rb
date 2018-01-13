@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create!(post_params)
+    @post = Post.create(post_params)
   end
 
   def show
@@ -15,7 +15,7 @@ class PostsController < ApplicationController
     @comment = @post.comments.new
 
     if !current_user
-      @post.views.create!(city: ip_detector(request.remote_ip), ip_address: request.remote_ip)
+      @post.views.create(city: ip_detector(request.remote_ip), ip_address: request.remote_ip)
     end
 
   end
