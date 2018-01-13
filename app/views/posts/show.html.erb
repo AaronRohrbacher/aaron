@@ -28,6 +28,7 @@
     <%= f.label 'Your comment:' %>
 
     <%= f.text_area :content, class: "form-control" %>
+    <%= f.hidden_field :ip_address, value: request.remote_ip %>
     <%= f.submit 'Preview and edit', class: "btn btn-success" %>
   </div>
 <% end %>

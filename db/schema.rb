@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20180108084611) do
     t.string "name", default: "Anonymous User"
     t.text "content"
     t.integer "post_id"
+    t.string "ip_address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

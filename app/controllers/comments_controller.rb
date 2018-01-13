@@ -12,8 +12,13 @@ class CommentsController < ApplicationController
   def update
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
-    @comment.update!(post_params)
-    redirect_to edit_post_comment_path(@post, @comment)
+    binding.pry
+    if @comment.ip_address == request.remote_ip
+      @comment.update!(post_params)
+      redirect_to edit_post_comment_path(@post, @comment)
+    else
+      redirect_to root_path
+    end
   end
 
   def create
@@ -23,6 +28,6 @@ class CommentsController < ApplicationController
   end
 
   def post_params
-    params.require(:comment).permit(:name, :content)
+    params.require(:comment).permit(:name, :content, :ip_address)
   end
 end
