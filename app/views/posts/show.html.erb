@@ -1,7 +1,9 @@
 <hr>
 <h1><%= @post.title %></h1>
+
 <p><%= @post.created_at.in_time_zone("Pacific Time (US & Canada)").strftime('%m/%d/%Y')%></p>
 <p>By Aaron Rohrbacher</p>
+<p><em>Share:</em> <%= social_share_button_tag(@post.title) %> </p>
 <hr>
 
 <%= coderay(@post.content).html_safe %>

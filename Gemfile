@@ -39,6 +39,8 @@ gem 'coderay', '~> 1.1.2'
 # Authentication:
 gem 'devise', '~> 4.4'
 
+# Social Media Share Button:
+gem 'social-share-button', '~> 1.1'
 # API Calls:
 gem 'rest-client', '~> 1.8'
 
