@@ -19,16 +19,31 @@
         var height = document.getElementById("header").offsetHeight;
         document.getElementById("content").style.marginTop = (height + 10) + 'px';
       });
+      $(window).scroll(function() {
+        if ($(window).scrollTop() > 100) {
+          $('.slideMe').slideUp(700);
+          $('.smallHeaderContent').slideDown(700);
+        } else {
+          $('.slideMe').slideDown(700);
+          $('.smallHeaderContent').slideUp(700);
+        }
+      });
+
     </script>
 
   </head>
 
   <body>
     <div id = 'header'>
-      <div class = 'headerContent'>
-        <h1><strong>Aaron Rohrbacher</strong></h1>
-        <h3>Junior Web Developer</h3>
-        <p>Portland, Oregon | (541) 848-2303 | arjazz@icloud.com</p>
+      <div class = 'slideMe'>
+        <div class = 'headerContent'>
+          <h1><strong>Aaron Rohrbacher</strong></h1>
+          <h3>Junior Web Developer</h3>
+          <p>Portland, Oregon | (541) 848-2303 | arjazz@icloud.com</p>
+        </div>
+      </div>
+      <div class = 'smallHeaderContent'>
+        <p>Aaron Rohrbacher | Junior Web Developer | arjazz@icloud.com</p>
       </div>
       <nav class="navbar navbar-expand-md navbar-light bg-faded navigation">
 
