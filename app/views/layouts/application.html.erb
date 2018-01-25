@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
     <title>Aaron Rohrbacher, Web Developer | <%= yield(:title) %></title>
@@ -10,26 +10,34 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+
     <script>
-      $(document).on('turbolinks:load', function () {
+      $(document).on('turbolinks:load', function() {
         var height = document.getElementById("header").offsetHeight;
         document.getElementById("content").style.marginTop = (height + 10) + 'px';
       });
+
       $(window).resize(function() {
         var height = document.getElementById("header").offsetHeight;
         document.getElementById("content").style.marginTop = (height + 10) + 'px';
       });
+
       $(window).scroll(function() {
-        if ($(window).scrollTop() > 100) {
+        var height = document.getElementById("header").offsetHeight;
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+          document.getElementById("content").style.marginTop = (height + 10) + 'px';
+        }
+        if ($(window).scrollTop() > height) {
           $('.slideMe').slideUp(700);
           $('.smallHeaderContent').slideDown(700);
         } else {
           $('.slideMe').slideDown(700);
           $('.smallHeaderContent').slideUp(700);
-        }
-      });
 
+        }
+        });
     </script>
+
 
   </head>
 
