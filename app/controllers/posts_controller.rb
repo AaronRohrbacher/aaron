@@ -15,7 +15,8 @@ class PostsController < ApplicationController
     @comment = @post.comments.new
 
     if !current_user
-      @post.views.create(city: ip_detector(request.remote_ip), ip_address: request.remote_ip)
+      ip_address = IpService.new
+      @post.views.create(city: ip_address.detect_city(request.remote_ip), ip_address: request.remote_ip)
     end
 
   end
