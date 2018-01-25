@@ -61,20 +61,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
+              <%= link_to 'Home', root_path, class: 'navbar-brand nav-link' %>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
               <%= link_to image_tag('linkedin.png', size: '24'), 'https://www.linkedin.com/in/aaronrohrbacher/', target: '_blank', class: 'navbar-brand' %>
             </li>
             <li class="nav-item">
-              <%= link_to image_tag('github.png', size: '64x24'), 'https://github.com/aaronrohrbacher', target: '_blank', class: 'navbar-brand na' %>
-
+              <%= link_to image_tag('github.png', size: '64x24'), 'https://github.com/aaronrohrbacher', target: '_blank', class: 'navbar-brand' %>
             </li>
-            <li class="nav-item">
-              <%= link_to 'Home', root_path, class: 'nav-link' %>
-            </li>
-
-
-
-
-
           </ul>
         </div>
       </nav>
