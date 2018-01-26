@@ -5,17 +5,19 @@
 <p>If it's not displaying as intended, you can edit it below.</p>
 
 <p><%= @comment.name %> said: </p>
-<%= coderay(@comment.content).html_safe %>
+<%= markdown(@comment.content) %>
 
 <hr>
 
 <h3>Edit your comment:</h3>
 <div class = 'alert alert-info'>
-<p><em>HTML is required in comments (working on a solution to this!).</em> To embed code, use the following example PRECISELY (spacing and double quotes matter in the opening code tag).</p>
-<p>YOUR LANGUAGE, as used below can have values of: ruby, javascript, or html</p>
-<code>
-   &lt;code lang="YOUR LANGUAGE"&gt;YOUR CODE HERE. Line breaks will be added automatically, use two spaces for tabbing.&lt;/code&gt;
-</code>
+  <p><em>Oldschool</em> markdown is allowed.</p>
+  <p>To include code inline (within a sentence or paragraph), use backticks.</p>
+  <p>To include code blocks, use your enter button to add a line between text and code, followed by four spaces of indentation (yes, I said <em>oldschool)</em>!</p>
+  <p><strong>example:</strong></p>
+  <p>Here is a sentence with `$ some inline code` and such.</p>
+  <p></p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;def thing<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stuff = "the stuff that thing does"</br>&nbsp;&nbsp;&nbsp;&nbsp;end</p>
 </div>
 
 

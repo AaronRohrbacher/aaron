@@ -4,10 +4,11 @@
 <h3 align='center'>Welcome to my Junior Rubyist Blog!</h3>
 <p>Hi! My name is Aaron Rohrbacher, and I'm Portland's 22nd-or-so newest junior web developer. I've built this blog in Ruby on Rails, with the intention of discussing some weird little things I've come across while continuing to learn how to program. May they help you immensely, or annoy the s#!+ out of you! <em>Either way, please feel free to leave a comment!</em> I'm here to continue my learning adventure, without a finish line.</p>
 
-<p>If you'd like to make this site look prettier, please do! This is an open source project, available on my GitHub: <%= link_to 'https://github.com/AaronRohrbacher/aaron', 'https://github.com/AaronRohrbacher/aaron', target: '_blank' %>
+<p>If you'd like to make this site look prettier, please do! This is an open source project: <%= link_to 'https://github.com/AaronRohrbacher/aaron', 'https://github.com/AaronRohrbacher/aaron', target: '_blank' %>
+
+<hr>
 
 <% @posts.each do |post| %>
-<hr>
   <h2><%= link_to post.title, post_path(post) %></h2>
   <p><%= post.description %></p>
 <hr>
