@@ -28,14 +28,5 @@
     <%= f.hidden_field :ip_address, value: request.remote_ip %>
     <%= f.submit 'Preview and edit', class: "btn btn-success" %>
   </div>
-  <div class = 'alert alert-info'>
-    <p><em>Oldschool</em> markdown is allowed.</p>
-    <p>To include code inline (within a sentence or paragraph), use backticks.</p>
-    <p>To include code blocks, use your enter button to add a line between text and code, followed by four spaces of indentation (yes, I said <em>oldschool)</em>!</p>
-    <p><strong>example:</strong></p>
-    <p>Here is a sentence with `$ some inline code` and such.</p>
-    <p></p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;def thing<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stuff = "the stuff that thing does"</br>&nbsp;&nbsp;&nbsp;&nbsp;end</p>
-  </div>
-
+<%= render 'shared/comment_suggestions' %>
 <% end %>
