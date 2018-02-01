@@ -4,6 +4,12 @@ class CommentsController < ApplicationController
     @comment = @post.comments.new
   end
 
+  def create
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.create(post_params)
+    redirect_to edit_post_comment_path(@post, @comment)
+  end
+
   def edit
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
@@ -22,11 +28,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  def create
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.create(post_params)
-    redirect_to edit_post_comment_path(@post, @comment)
-  end
 
   def post_params
     params.require(:comment).permit(:name, :content, :ip_address)
