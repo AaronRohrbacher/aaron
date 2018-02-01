@@ -5,7 +5,7 @@
 
 <p><%= @post.created_at.in_time_zone("Pacific Time (US & Canada)").strftime('%m/%d/%Y')%></p>
 <p>By Aaron Rohrbacher</p>
-<p><em>Share:</em> <%= social_share_button_tag(@post.title, desc: @post.description, :image => "https://avatars3.githubusercontent.com/u/30248832?s=460&v=4") %> </p>
+<p><em>Share:</em> <%= social_share_button_tag(@post.title, desc: @post.description, :image => asset_path('aaron.jpg')) %> </p>
 <hr>
 
 <%= markdown(@post.content) %>
