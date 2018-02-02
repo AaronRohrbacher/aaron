@@ -27,17 +27,19 @@
       $(window).scroll(function() {
         var height = document.getElementById("header").offsetHeight;
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-          document.getElementById("content").style.marginTop = (height + 20) + 'px';
+          document.getElementById("content").style.marginTop = (height + 10) + 'px';
         }
-        if ($(window).scrollTop() > height) {
-          $('.slideMe').slideUp(700);
-          $('.smallHeaderContent').slideDown(700);
-        } else {
-          $('.slideMe').slideDown(700);
-          $('.smallHeaderContent').slideUp(700);
 
+        if ( document.getElementById("content").offsetHeight > 750 ) {
+          if ($(window).scrollTop() > height) {
+            $('.slideMe').slideUp(700);
+            $('.smallHeaderContent').slideDown(700);
+          } else {
+            $('.slideMe').slideDown(700);
+            $('.smallHeaderContent').slideUp(700);
+          }
         }
-        });
+      });
     </script>
 
 
