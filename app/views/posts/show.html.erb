@@ -2,7 +2,7 @@
 <hr>
 <div class = "jumbotron">
 <h1><%= @post.title %></h1>
-<h4><%= @post.description %></h4>
+<h4><em><%= @post.description %></em></h4>
 
 <p><%= @post.created_at.in_time_zone("Pacific Time (US & Canada)").strftime('%m/%d/%Y')%></p>
 <p>By Aaron Rohrbacher</p>
