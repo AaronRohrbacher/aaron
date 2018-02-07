@@ -1,17 +1,51 @@
-<div class = 'alert alert-info'>
+<div class = "card">
   <p><strong>Markdown is allowed. Examples:</strong></p>
-  <p>Here's a sentence with `a little bit of code` in it.</p>
-  <p>Here's a code block (a blank line between text and the ticks is <strong>required</strong>):</p>
-  <ul>
-    <li>You can specify a language after three tickmarks and a space. If you don't, the default is Ruby.</li>
-  </ul>
-  <p>here's some text</p>
-  <p>
-  ``` JavaScript<br>
-  thing = function() {<br>
-  &nbsp;&nbsp;return "stuff"<br>
-  }<br>
-    ```
-  </p>
-  <p><strong>Of course, you can just leave a plain text comment!</strong></p>
+  <div class = "row">
+    <div class = "col-md-6">
+      <p><strong>You type:</strong></p>
+      <p>Here's a regular old comment!</p>
+    </div>
+    <div class = "col-md-6">
+      <p><strong>Returns:</strong></p>
+      <%= markdown("Here's a regular old comment!") %>
+    </div>
+  </div>
+  <hr>
+
+  <div class = "row">
+    <div class = "col-md-6">
+      <p><strong>You type:</strong></p>
+      <p>Here's a sentence with `a little bit of code` in it.</p>
+    </div>
+    <div class = "col-md-6">
+      <p><strong>Returns:</strong></p>
+      <%= markdown("Here's a sentence with `a little bit of code` in it.") %>
+    </div>
+  </div>
+  <hr>
+  <div class = "row">
+    <div class = "col-md-6">
+      <p><strong>You type:</strong></p>
+      <p>
+        here is some text<br>
+        <em>This line must be blank! Press Enter!</em><br>
+        ``` JavaScript<br>
+        thing = function() {<br>
+        &nbsp;&nbsp;return "stuff"<br>
+        }<br>
+          ```
+      </p>
+    </div>
+    <div class = "col-md-6">
+      <p><strong>Returns:</strong></p>
+      <%= markdown('here is some text
+
+``` JavaScript
+thing = function() {
+  return "stuff"
+}
+```') %>
+    </div>
+  </div>
+  <p><strong><em>In the above example, I've specified a language. If you don't, the default is Ruby (as it's clearly the best).</em></strong></p>
 </div>

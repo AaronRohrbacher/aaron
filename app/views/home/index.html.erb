@@ -12,14 +12,12 @@
 <% @posts.each do |post| %>
 <div class = "col-md-4">
   <div class = "card cardFront">
-    <div style = "background-color: LightGray">
+    <div class = "heading">
       <h2><%= link_to post.title, post_path(post) %></h2>
+      <hr>
     </div>
     <p><em><%= post.created_at.in_time_zone("Pacific Time (US & Canada)").strftime('%m/%d/%Y')%></em></p>
       <p><strong><%= post.description %></strong></p>
-    <div>
-      <p><%= truncate(post.content, length: 50) %></p>
-    </div>
   </div>
 </div>
 <% end %>

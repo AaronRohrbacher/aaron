@@ -10,14 +10,19 @@
 
 <%= markdown(@post.content) %>
 <hr>
-<p><strong>Comments:</strong></p>
-<% @comments.each do |comment| %>
-  <p><em><strong><%= comment.name %></em></strong> said:</p>
-  <hr>
-  <%= markdown(comment.content) %>
+<% if @comments.length > 0 %>
+  <p><strong>Comments:</strong></p>
+  <% @comments.each do |comment| %>
+    <p><em><strong><%= comment.name %></em></strong> said:</p>
+    <hr>
+    <%= markdown(comment.content) %>
+    <hr>
+  <% end %>
+<% else %>
+  <p><strong>No comments yet! Be the first!</strong></p>
 <% end %>
-<hr>
 
+<div class = "card cardFront">
 <p><strong>Add a comment:</strong></p>
 <%= form_for [@post, @comment] do |f| %>
   <div class = "form-group">
@@ -31,3 +36,4 @@
   </div>
 <%= render 'shared/comment_suggestions' %>
 <% end %>
+</div>
