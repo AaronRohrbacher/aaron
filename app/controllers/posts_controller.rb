@@ -19,6 +19,8 @@ class PostsController < ApplicationController
       @post.views.create(city: ip_address.detect_city(request.remote_ip), ip_address: request.remote_ip)
     end
 
+    @views = View.all
+
   end
 
   def edit

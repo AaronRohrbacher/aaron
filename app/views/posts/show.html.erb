@@ -37,3 +37,13 @@
 <%= render 'shared/comment_suggestions' %>
 <% end %>
 </div>
+
+<% if current_user %>
+  <p>Views: <%= @post.views.length %> </p>
+  <hr>
+  <% @post.views.each do |view| %>
+    <p><%= view.ip_address %></p>
+    <p><%= view.city %></p>
+    <p><%= view.created_at.in_time_zone("Pacific Time (US & Canada)") %></p>
+  <% end %>
+<% end %>
