@@ -55,7 +55,7 @@
           <%= image_tag 'logo.png', size: '80x50' %>
           <h1><strong>Aaron Rohrbacher</strong></h1>
           <h3>Web Developer</h3>
-          <p>Portland, Oregon | (541) 848-2303 | arjazz@icloud.com</p>
+          <p>Portland, Oregon | (541) 848-2303 | aaron@aaronrohrbacher.com</p>
         </div>
       </div>
       <div class = 'smallHeaderContent'>
@@ -69,26 +69,27 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <%= link_to 'Home', root_path, class: 'navbar-brand nav-link' %>
+              <%= link_to 'Home', root_path, class: 'nav-link' %>
             </li>
-          </ul>
-          <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <%= link_to "My Résumé", asset_path("Aaron_Rohrbacher_Resume.pdf"), target: '_blank', class: 'navbar-brand'  %>
+              <%= link_to 'My Résumé', asset_path("Aaron_Rohrbacher_Resume.pdf"), target: '_blank', class: 'nav-link'  %>
             </li>
 
+          </ul>
+          <ul class="navbar-nav ml-auto">
+
             <li class="nav-item">
-              <%= link_to image_tag('linkedin.png', size: '24'), 'https://www.linkedin.com/in/aaronrohrbacher/', target: '_blank', class: 'navbar-brand' %>
+              <%= link_to image_tag('linkedin.png', size: '24'), 'https://www.linkedin.com/in/aaronrohrbacher/', target: '_blank', class: 'nav-link' %>
             </li>
             <li class="nav-item">
-              <%= link_to image_tag('github.png', size: '64x24'), 'https://github.com/aaronrohrbacher', target: '_blank', class: 'navbar-brand' %>
+              <%= link_to image_tag('github.png', size: '64x24'), 'https://github.com/aaronrohrbacher', target: '_blank', class: 'nav-link' %>
             </li>
           </ul>
         </div>
       </nav>
     </div>
     <div class = "container">
-      <div id = 'content' >
+      <div id = 'content' class = 'proxima' >
         <% flash.each do |key, value| %>
          <div class='alert alert-info alert-dismissible fade show' role='alert'>
            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -104,7 +105,7 @@
         <%= yield %>
       </div>
     </div>
-    <footer align = "center">Aaron Rohrbacher | Web Developer | Portland, Oregon</footer>
+    <footer align = "center" class = 'proxima' >Aaron Rohrbacher | Web Developer | Portland, Oregon</footer>
   </body>
 
 </html>

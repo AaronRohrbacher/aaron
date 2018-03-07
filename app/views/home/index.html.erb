@@ -8,9 +8,9 @@
 <div class="row">
 <% @posts.each do |post| %>
 <div class = "col-md-4">
-  <div class = "card cardFront">
-    <div class = "heading">
-      <h2><%= link_to post.title, post_path(post) %></h2>
+  <div class = "card cardFront proxima">
+    <div class = "heading proxima">
+      <h2 class = 'proxima'><%= link_to post.title, post_path(post) %></h2>
       <hr>
     </div>
     <p><em><%= post.created_at.in_time_zone("Pacific Time (US & Canada)").strftime('%m/%d/%Y')%></em></p>
