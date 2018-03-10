@@ -4,7 +4,7 @@ module ApplicationHelper
       options = {
         :fenced_code_blocks => true,
         :no_intra_emphasis => true,
-        :autolink => true,
+        :autolink => false,
         :strikethrough => true,
         :lax_html_blocks => true,
         :superscript => true,
