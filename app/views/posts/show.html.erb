@@ -44,6 +44,7 @@
     <p><%= view.ip_address %></p>
     <p><%= view.city %></p>
     <p><%= view.created_at.in_time_zone("Pacific Time (US & Canada)") %></p>
+    <%= link_to 'delete', view_path(view), method: :delete, data: { confirm: 'Are you sure?' } %>
     <hr>
   <% end %>
 <% end %>
