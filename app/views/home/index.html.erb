@@ -1,21 +1,40 @@
 <% content_for(:title, 'Home') %>
-
-<div class="jumbotron">
-  <h3 align='center'>Welcome to my Junior Rubyist Blog!</h3>
-  <p>Hi! My name is Aaron Rohrbacher, and I'm Portland's 22nd-or-so newest junior web developer. I've built this simple blog in Ruby on Rails, HTML, CSS, Bootstrap, and some JavaScript and jQuery. I intend to be discussing some weird little things I've come across while continuing my programming career. May they help you immensely, or annoy the s#!+ out of you! <em>Either way, please feel free to leave a comment!</em></p>
-</div>
-<hr>
-<div class="row">
-<% @posts.each do |post| %>
-<div class = "col-md-4">
-  <div class = "card cardFront proxima">
-    <div class = "heading proxima">
-      <h2 class = 'proxima'><%= link_to post.title, post_path(post) %></h2>
-      <hr>
-    </div>
-    <p><em><%= post.created_at.in_time_zone("Pacific Time (US & Canada)").strftime('%m/%d/%Y')%></em></p>
-      <p><strong><%= post.description %></strong></p>
+<div class = "blogApp">
+  <div class="jumbotron">
+    <h3 align='center'>Welcome to my blog!</h3>
+    <p>Hi! My name is Aaron Rohrbacher, and I'm Portland's 22nd-or-so newest junior web developer. I've built this simple blog in Ruby on Rails, HTML, CSS, Bootstrap, and some JavaScript and jQuery. I intend to be discussing some weird little things I've come across while continuing my programming career. May they help you immensely, or annoy the s#!+ out of you! <em>Either way, please feel free to leave a comment!</em></p>
+  </div>
+  <hr>
+  <div class="row">
+    <% @posts.each do |post| %>
+      <div class = "col-md-4">
+        <div class = "card cardFront proxima">
+          <div class = "heading proxima">
+            <h2 class = 'proxima'><%= link_to post.title, post_path(post) %></h2>
+            <hr>
+          </div>
+          <p><em><%= post.created_at.in_time_zone("Pacific Time (US & Canada)").strftime('%m/%d/%Y')%></em></p>
+            <p><strong><%= post.description %></strong></p>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
-<% end %>
+
+
+<h3 style="text-align:center;"><strong>Let's save some time and money by writing web applications with clean, reusable code.</strong></h3>
+<h4 style="text-align: center;">Teams I've worked well with:</h4>
+<div class = "row">
+  <div class = 'col-md-3'>
+    <%= image_tag 'apex.png', class: 'img-fluid' %>
+  </div>
+  <div class = "col-md-3">
+    <%= image_tag 'awesurance.png', class: 'img-fluid' %>
+  </div>
+  <div class = "col-md-3">
+    <%= image_tag 'bir.png', class: 'img-fluid'%>
+  </div>
+  <div class = "col-md-3">
+    <%= image_tag 'fivepint.jpg', class: 'img-fluid'%>
+  </div>
 </div>

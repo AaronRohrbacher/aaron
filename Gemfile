@@ -32,8 +32,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Styling:
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'jquery-rails'
-gem 'bootstrap', '~> 4.0.0.beta3'
+gem 'bootstrap', '~> 4.1.1'
 gem 'redcarpet', '~> 3.3'
 gem 'coderay', '~> 1.1.2'
 
