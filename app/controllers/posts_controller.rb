@@ -13,7 +13,7 @@ class PostsController < ApplicationController
     if current_user
       @comments = @post.comments.all.order(:id)
     else
-      @comments = @post.comments.where(approved:true)
+      @comments = @post.comments.where(approved:true).order(:id)
     end
 
     @comment = @post.comments.new
