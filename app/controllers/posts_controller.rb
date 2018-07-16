@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     if current_user
-      @comments = @post.comments.all
+      @comments = @post.comments.all.order(:id)
     else
       @comments = @post.comments.where(approved:true)
     end
