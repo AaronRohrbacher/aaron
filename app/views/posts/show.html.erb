@@ -13,6 +13,12 @@
 <% if @comments.length > 0 %>
   <p><strong>Comments:</strong></p>
   <% @comments.each do |comment| %>
+    <% if current_user %>
+      <% if comment.approved === false %>
+        <%= link_to 'approve', edit_post_comment_path(@post, comment, approve:true) %>
+      <% end %>
+      <%= link_to 'delete', post_comment_path(@post, comment), method: :delete %>
+    <% end %>
     <p><em><strong><%= comment.name %></em></strong> said:</p>
     <hr>
     <%= markdown(comment.content) %>

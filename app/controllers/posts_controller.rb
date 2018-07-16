@@ -10,7 +10,11 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @comments = @post.comments.all
+    if current_user
+      @comments = @post.comments.all
+    else
+      @comments = @post.comments.where(approved:true)
+    end
 
     @comment = @post.comments.new
 
