@@ -1,6 +1,6 @@
 class IpService
   def detect_city(ip_address)
-    result = RestClient.get("https://freegeoip.net/json/#{ip_address}")
+    result = RestClient.get("https://api.ipstack.com/#{ip_address}?access_key=#{ENV['IP_STACK_KEY']}")
     JSON.parse(result)['city']
   end
 
