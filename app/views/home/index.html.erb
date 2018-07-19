@@ -1,40 +1,43 @@
 <% content_for(:title, 'Home') %>
-<div class = "blogApp">
-  <div class="jumbotron">
-    <h3 align='center'>Welcome to my blog!</h3>
-    <p>Hi! My name is Aaron Rohrbacher, and I'm Portland's 22nd-or-so newest junior web developer. I've built this simple blog in Ruby on Rails, HTML, CSS, Bootstrap, and some JavaScript and jQuery. I intend to be discussing some weird little things I've come across while continuing my programming career. May they help you immensely, or annoy the s#!+ out of you! <em>Either way, please feel free to leave a comment!</em></p>
-  </div>
-  <hr>
-  <div class="row">
-    <% @posts.each do |post| %>
-      <div class = "col-md-4">
-        <div class = "card cardFront proxima">
-          <div class = "heading proxima">
-            <h2 class = 'proxima'><%= link_to post.title, post_path(post) %></h2>
-            <hr>
-          </div>
-          <p><em><%= post.created_at.in_time_zone("Pacific Time (US & Canada)").strftime('%m/%d/%Y')%></em></p>
-            <p><strong><%= post.description %></strong></p>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-
 <h3 style="text-align:center;"><strong>Let's save some time and money by writing web applications with clean, reusable code.</strong></h3>
 <h4 style="text-align: center;">Teams I've worked well with:</h4>
-<div class = "row">
-  <div class = 'col-md-3'>
-    <%= image_tag 'apex.png', class: 'img-fluid' %>
-  </div>
-  <div class = "col-md-3">
-    <%= image_tag 'awesurance.png', class: 'img-fluid' %>
-  </div>
-  <div class = "col-md-3">
-    <%= image_tag 'bir.png', class: 'img-fluid'%>
-  </div>
-  <div class = "col-md-3">
-    <%= image_tag 'fivepint.jpg', class: 'img-fluid'%>
+<div align="center">
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" align="center" >
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="carouselImg">
+          <%= image_tag 'awesurance.png', class: 'd-block w-100' %>
+        </div>
+        <blockquote class="blockquote text-left">
+          <p class="mb-0">Working with Aaron has been an absolute delight - he’s very responsive, detail-oriented and his willingness to take on complex projects in “uncharted waters” is highly commendable. If you are entertaining the thought of hiring Aaron, my advice would be to not think twice.</p>
+          <footer class="blockquote-footer">Joshusa Nadler <cite title="Source Title">Founding Partner + Designerd, Awesurance</cite></footer>
+        </blockquote>
+
+      </div>
+      <div class="carousel-item">
+        <div class="carouselImg">
+          <%= image_tag 'bir.png', class: 'd-block w-100' %>
+        </div>
+        <blockquote class="blockquote text-left">
+          <p class="mb-0">Aaron Rohrbacher stepped in and has been working hard at dragging a couple of old codgers into the 21st century. He has solved our woeful email problems and now, it all runs smoothly. He has taken our meager webpage and laid out a beautiful site to make us look great. If we ever get him the information he needs to complete the site, it’s going to be all that we had hoped for! Aaron is a patient man, listens to our needs, has a great sense of humor and tremendous knowledge, skill and artistry.  Whenever we have questions or problems his response is always immediate, as is his solution. Our “tech life” has been so much less stressful. Since Aaron came onboard we spend our days doing what we do best…repairing instruments and not fumbling around trying to make the tech-side work. He has saved us time and stress which directly translates into money & efficiency. <br><br>Thank You Aaron!</p>
+          <footer class="blockquote-footer">Randy Graves <cite title="Source Title">Bend Instrument Repair</cite></footer>
+        </blockquote>
+
+      </div>
+      <div class="carousel-item">
+        <div class="carouselImg">
+          <%= image_tag 'apex.png', class: 'd-block w-100 carouselImg' %>
+        </div>
+      </div>
+
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
 </div>
