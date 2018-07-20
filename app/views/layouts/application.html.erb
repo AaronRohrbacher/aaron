@@ -3,6 +3,11 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:image" content="http://www.aaronrohrbacher.com/assets/logo.png" />
+    <% if @post %>
+      <meta property='og:title' content= "<%= @post.title %>" />
+      <meta property='og:description' content='<%= @post.description %>' />
+      <meta property='og:url' content='<%= request.original_url %>' />
+    <% end %>
 
     <title>Aaron Rohrbacher, Web Developer | <%= yield(:title) %></title>
     <%= csrf_meta_tags %>
