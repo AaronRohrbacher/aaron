@@ -58,4 +58,6 @@ task approve_comments: :environment do
   comments.each do |comment|
     check_comment(comment)
   end
+  puts '-----'
+  puts 'All comments reviewed.'
 end
