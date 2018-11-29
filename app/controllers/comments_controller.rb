@@ -1,14 +1,25 @@
 class CommentsController < ApplicationController
-  def new
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.new
-  end
+  # def new
+  #   @post = Post.find(params[:post_id])
+  #   if Comment.not_a_hacker(request.remote_ip) == true
+  #     binding.pry
+  #     @comment = @post.comments.new
+  #   else
+  #     redirect_to root_path, flash[:alert] = "Fuck off hacker"
+  #   end
+  # end
 
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.create(post_params)
-    flash[:notice] = 'Comment submitted for approval. Edit below if need be.'
-    redirect_to edit_post_comment_path(@post, @comment)
+    comment_check = Comment.new
+    if comment_check.not_a_hacker(request.remote_ip) == false
+      flash[:alert] = 'Security issue: too many comments. If this is in error, please e-mail me.'
+      redirect_to root_path
+    else
+      @comment = @post.comments.create(post_params)
+      flash[:notice] = 'Comment submitted for approval. Edit below if need be.'
+      redirect_to edit_post_comment_path(@post, @comment)
+    end
   end
 
   def edit
