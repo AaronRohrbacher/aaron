@@ -1,20 +1,21 @@
 class CommentsController < ApplicationController
-  # def new
-  #   @post = Post.find(params[:post_id])
-  #   if Comment.not_a_hacker(request.remote_ip) == true
-  #     binding.pry
-  #     @comment = @post.comments.new
-  #   else
-  #     redirect_to root_path, flash[:alert] = "Fuck off hacker"
-  #   end
-  # end
+  def new
+    @post = Post.find(params[:post_id])
+    if Comment.not_a_hacker(request.remote_ip) == true
+      binding.pry
+      @comment = @post.comments.new
+    else
+      redirect_to root_path, flash[:alert] = "Fuck off hacker"
+    end
+  end
 
   def create
     @post = Post.find(params[:post_id])
     comment_check = Comment.new
     if comment_check.not_a_hacker(request.remote_ip) == false
-      flash[:alert] = 'Security issue: too many comments. If this is in error, please e-mail me.'
-      redirect_to root_path
+      @comment = Comment.new(name: ' ', content: ' ')
+      flash[:alert] = 'Forbidden. If this is in error, please e-mail me.'
+      render :edit, status: 403
     else
       @comment = @post.comments.create(post_params)
       flash[:notice] = 'Comment submitted for approval. Edit below if need be.'
