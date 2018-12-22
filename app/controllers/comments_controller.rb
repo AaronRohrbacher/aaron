@@ -2,7 +2,6 @@ class CommentsController < ApplicationController
   def new
     @post = Post.find(params[:post_id])
     if Comment.not_a_hacker(request.remote_ip) == true
-      binding.pry
       @comment = @post.comments.new
     else
       redirect_to root_path, flash[:alert] = "Fuck off hacker"
@@ -30,7 +29,6 @@ class CommentsController < ApplicationController
       @comment.update!(approved: true)
       redirect_to post_path(@post)
     end
-
   end
 
   def update
