@@ -1,5 +1,9 @@
 class BlogController < ApplicationController
   def index
-    @posts = Post.all
+    if current_user
+      @posts = Post.all
+    else
+      @posts = Post.where(published: true)
+    end
   end
 end

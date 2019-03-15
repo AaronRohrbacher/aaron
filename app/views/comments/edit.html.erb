@@ -1,18 +1,19 @@
 <% content_for(:title, "Edit #{@post.title} Comment") %>
 
 
-<h3>Here's your <em>currently posted</em> comment!</h3>
-<p>If it's not displaying as intended, you can edit it below.</p>
-
-<p><%= @comment.name %> said: </p>
+<h3>Your comment:</h3>
+<% if @comment.approved === true %>
+  <p><em>Approved</em></p>
+<% else %>
+  <p><em>Pending approval</em></p>
+<% end %>
 <%= markdown(@comment.content) %>
+<%= link_to "Love it. Back to Post", post_path(@post), class: "btn btn-primary" %>
 
 <hr>
 
-<h3>Edit your comment:</h3>
-
-<%= render 'shared/comment_suggestions' %>
-
+<h3>Edit your comment</h3>
+<p>Markdown is allowed. <span class="link" id="comment-suggestions-button">Click here for instructions</span></p>
 <%= form_for [@post, @comment] do |f| %>
   <div class = "form-group">
     <%= f.label 'Your name (optional):' %>
@@ -21,6 +22,5 @@
 
     <%= f.text_area :content, class: "form-control" %>
     <%= f.submit 'Finish Editing', class: "btn btn-success" %>
-
   <% end %>
-  </div>
+</div>

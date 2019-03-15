@@ -6,12 +6,20 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params)
+    redirect_to post_path(@post)
   end
 
   def show
     @post = Post.find(params[:id])
+    if @post.published === false && !current_user
+      flash[:alert] = "Content unavailable"
+      redirect_to blog_path
+    end
     if current_user
       @comments = @post.comments.all.order(:id)
+      if params[:published] == "true"
+        @post.update(published: true)
+      end
     else
       @comments = @post.comments.where(approved:true).order(:id)
     end
@@ -34,11 +42,12 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     @post.update(post_params)
+    redirect_to post_path(@post)
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :description, :content)
+    params.require(:post).permit(:title, :description, :content, :published)
   end
 end

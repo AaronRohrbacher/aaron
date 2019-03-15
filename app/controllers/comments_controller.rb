@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
       render :edit, status: 403
     else
       @comment = @post.comments.create(post_params)
-      flash[:notice] = 'Comment submitted for approval. Edit below if need be.'
+      flash[:notice] = 'Comment submitted for approval. Review and edit below.'
       redirect_to edit_post_comment_path(@post, @comment)
     end
   end
@@ -36,10 +36,10 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     if @comment.ip_address == request.remote_ip
       @comment.update(post_params)
-      flash[:alert]="Submitted for approval. Edit again if need be."
+      flash[:notice]="Comment updated and submitted for approval. Review and edit below."
       redirect_to edit_post_comment_path(@post, @comment)
     else
-      flash[:alert]="Your IP address does not match original comment's IP address. E-mail me if you need your comment updated!"
+      flash[:alert]="Not authorized. Please e-mail me to update your comment."
       redirect_to root_path
     end
   end
@@ -49,8 +49,6 @@ class CommentsController < ApplicationController
     @comment.destroy!
     redirect_to post_path(@comment.post)
   end
-
-
 
   def post_params
     params.require(:comment).permit(:name, :content, :ip_address)

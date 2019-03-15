@@ -1,11 +1,12 @@
 <% content_for(:title, @post.title) %>
-<div class = "jumbotron">
-<h1><%= @post.title %></h1>
-<h4><em><%= @post.description %></em></h4>
 
-<p><%= @post.created_at.in_time_zone("Pacific Time (US & Canada)").strftime('%m/%d/%Y')%></p>
-<p>By Aaron Rohrbacher</p>
-<p><em>Share:</em> <%= social_share_button_tag(@post.title, desc: @post.description) %> </p>
+<div class = "jumbotron">
+  <h1><%= @post.title %></h1>
+  <h4><em><%= @post.description %></em></h4>
+
+  <p><%= @post.created_at.in_time_zone("Pacific Time (US & Canada)").strftime('%m/%d/%Y')%></p>
+  <p>By Aaron Rohrbacher</p>
+  <p><em>Share:</em> <%= social_share_button_tag(@post.title, desc: @post.description) %> </p>
 </div>
 
 <%= markdown(@post.content) %>
@@ -30,6 +31,7 @@
 
 <div class = "card cardFront">
 <p><strong>Add a comment:</strong></p>
+<p>Markdown is allowed. <span class="link" id="comment-suggestions-button">Click here for instructions</span></p>
 <%= form_for [@post, @comment] do |f| %>
   <div class = "form-group">
     <%= f.label 'Your name (optional):' %>
@@ -39,11 +41,15 @@
     <%= f.hidden_field :ip_address, value: request.remote_ip %>
     <%= f.submit 'Publish (then edit)', class: "btn btn-primary" %>
   </div>
-<%= render 'shared/comment_suggestions' %>
 <% end %>
 </div>
 
+
 <% if current_user %>
+  <%= link_to 'Edit Post', edit_post_path(@post), class: "btn btn-primary" %>
+  <% if @post.published === false %>
+    <%= link_to "Publish", "/posts/#{@post.id}?published=true" %>
+  <% end %> 
   <p>Views: <%= @post.views.length %> </p>
   <hr>
   <% @post.views.each do |view| %>
@@ -54,3 +60,4 @@
     <hr>
   <% end %>
 <% end %>
+

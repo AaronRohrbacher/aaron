@@ -44,7 +44,7 @@ gem 'devise', '~> 4.4'
 # Social Media Share Button:
 gem 'social-share-button', '~> 1.1'
 # API Calls:
-gem 'rest-client', '~> 1.8'
+gem 'rest-client', '~> 2.0.2'
 
 # Post Voting
 # gem 'acts_as_votable', '~> 0.11.1'
