@@ -39,7 +39,7 @@ gem 'redcarpet', '~> 3.3'
 gem 'coderay', '~> 1.1.2'
 
 # Authentication:
-gem 'devise', '~> 4.4'
+gem 'devise', '~> 4.7'
 
 # Social Media Share Button:
 gem 'social-share-button', '~> 1.1'
