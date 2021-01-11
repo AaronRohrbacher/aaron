@@ -35,7 +35,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.1'
-gem 'redcarpet', '~> 3.3'
+gem 'redcarpet', '~> 3.5'
 gem 'coderay', '~> 1.1.2'
 
 # Authentication:
